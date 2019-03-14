@@ -1,27 +1,42 @@
-// $font-primary: (
-// 	font-family: (
-// 		Graphik,
-// 		serif
-// 	),
-// 	load: true,
-// 	weights: (
-// 		'Light': 100,
-// 		'Regular': 400,
-// 		'Medium': 500,
-// 		'Bold': 600
-// 	),
-// 	path: '~/fonts',
-// 	files: (
-// 		'woff2',
-// 		'ttf',
-// 		'eot'
-// 	),
-// 	use: (
-// 		'p',
-// 		'body'
-// 	),
-// 	types: (
-// 		'normal',
-// 		'italic'
-// 	)
-// );
+@font-face {
+	font-family: 'Teko';
+	font-weight: normal;
+	src: url('~static/fonts/Teko-Regular.eot'); /* IE9 Compat Mode */
+	src: url('~static/fonts/Teko-Regular.woff') format('woff'),
+			url('~static/fonts/Teko-Regular.woff2') format('woff2'),
+			url('~static/fonts/Teko-Regular.eot') format('eot');
+}
+  
+@font-face {
+	font-family: 'MaisonNeueBold';
+	font-weight: normal;
+	src: url('~static/fonts/MaisonNeue-Bold.eot'); /* IE9 Compat Mode */
+	src: url('~static/fonts/MaisonNeue-Bold.woff') format('woff'),
+			url('~static/fonts/MaisonNeue-Bold.woff2') format('woff2'),
+			url('~static/fonts/MaisonNeue-Bold.eot') format('eot');
+}
+@font-face {
+	font-family: 'MaisonNeueBook';
+	font-weight: normal;
+	src: url('~static/fonts/MaisonNeue-Book.eot'); /* IE9 Compat Mode */
+	src: url('~static/fonts/MaisonNeue-Book.woff') format('woff'),
+			url('~static/fonts/MaisonNeue-Book.woff2') format('woff2'),
+			url('~static/fonts/MaisonNeue-Book.eot') format('eot');
+}
+  
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: 'Teko';
+	&.sub {
+		font-weight: 400;
+	}
+}
+
+body, p{
+	font-family: 'MaisonNeueBook';
+}
