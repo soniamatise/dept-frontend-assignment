@@ -14,6 +14,7 @@ module.exports = {
   rules: {
     'vue/html-indent': ['error', 'tab'],
     'vue/max-attributes-per-line': [0],
+    'vue/require-prop-types': [0],
     'vue/html-self-closing': [
       'warn',
       {

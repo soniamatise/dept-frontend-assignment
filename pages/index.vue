@@ -1,16 +1,25 @@
 <template>
-
 	<main class="page page--home">
-		<section class="intro"/>
+		<section class="section section__cases-archive cases-archive">
+			<case-block/>
+			<case-block/>
+			<case-block/>
+			<case-block/>
+			<case-block case-type="long"/>
+			<div class="cases-archive__short-cases">
+				<case-block case-type="short"/>
+				<case-block case-type="short"/>
+			</div>
+			<case-block/>
+		</section>
 	</main>
-
 </template>
 
 <script>
-// import henrisNuxt from '~/components/henris-nuxt.vue';
+import caseBlock from '~/components/elements/case-block.vue';
 export default {
 	components: {
-		// henrisNuxt
+		caseBlock
 	}
 };
 </script>
@@ -25,11 +34,4 @@ export default {
 	}
 }
 
-.intro {
-	height: 100vh;
-	width: 100vw;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
 </style>

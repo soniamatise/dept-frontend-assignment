@@ -68,11 +68,8 @@ export default {
 
 .header {
 	padding: rem(50) 0 rem(20);
-	position: fixed;
 	width: 100%;
-	z-index: 2;
-	left: 0;
-	top: 0;
+	max-width: 1250px;
 	border-bottom: 1px solid color(Black);
 	.main-nav {
 		@media #{$medium-down} {

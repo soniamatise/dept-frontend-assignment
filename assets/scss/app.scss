@@ -21,6 +21,25 @@ body {
 	overflow-x: hidden;
 }
 
+.section {
+	width: 100vw;
+	max-width: 1260px;
+	display: flex;
+	flex-wrap: wrap;
+
+	&__cases-archive {
+		flex-direction: row;
+		justify-content: space-around;
+	}
+}
+.cases-archive {
+	&__short-cases {
+		margin: 40px 0;
+		width: calc(30% - 30px);
+		background: green;
+	}
+}
+
 img:not([alt]), img[alt=""] {
 	outline: none;
 }
