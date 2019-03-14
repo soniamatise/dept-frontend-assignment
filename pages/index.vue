@@ -12,14 +12,18 @@
 			</div>
 			<case-block/>
 		</section>
+		<clients/>
 	</main>
 </template>
 
 <script>
 import caseBlock from '~/components/elements/case-block.vue';
+import clients from '~/components/sections/clients.vue';
+
 export default {
 	components: {
-		caseBlock
+		caseBlock,
+		clients
 	}
 };
 </script>
