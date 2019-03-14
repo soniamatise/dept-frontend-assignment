@@ -8,13 +8,7 @@
 							<nuxt-link to="/" class="main-nav__link">
 								<span class="main-nav__text"><h1>Dept</h1></span>
 							</nuxt-link>
-						</li>
-						<li class="main-nav__item main-nav__item--normal">
-							<nuxt-link to="/work" class="main-nav__link">
-								<span class="main-nav__text">Work</span>
-							</nuxt-link>
-						</li>
-					
+						</li>			
 						<li class="main-nav__item main-nav__item--menubtn">
 							<a class="button-container yellow cta-to-menu" @click="toggleMenu()">
 								<p>MENU</p>
@@ -33,7 +27,22 @@
 					<nuxt-link to="/">Home</nuxt-link>
 				</h4>
 				<h4 @click="toggleMenu()">
-					<nuxt-link to="/work">WORK</nuxt-link>
+					<nuxt-link to="/werk">Werk</nuxt-link>
+				</h4>
+				<h4 @click="toggleMenu()">
+					<nuxt-link to="/work">Over</nuxt-link>
+				</h4>
+				<h4 @click="toggleMenu()">
+					<nuxt-link to="/work">Diensten</nuxt-link>
+				</h4>
+				<h4 @click="toggleMenu()">
+					<nuxt-link to="/work">Partners</nuxt-link>
+				</h4>
+				<h4 @click="toggleMenu()">
+					<nuxt-link to="/work">Stories</nuxt-link>
+				</h4>
+				<h4 @click="toggleMenu()">
+					<nuxt-link to="/work">vacatures</nuxt-link>
 				</h4>
 			</div>
 		</section>
@@ -46,13 +55,6 @@ export default {
 			showMenu: false
 		};
 	},
-	// head () {
-	//     return {
-	//         bodyAttrs: {
-	//             class: this.showMenu ? 'no-scroll-body' : '',
-	//         }
-	//     }
-	// },
 	methods: {
 		toggleMenu: function () {
 			this.showMenu = !this.showMenu;
@@ -65,14 +67,13 @@ export default {
 @import '~tools';
 
 .header {
-	padding: 3rem 0 1rem;
-	background-color: color(Yellow);
+	padding: rem(50) 0 rem(20);
 	position: fixed;
 	width: 100%;
 	z-index: 2;
-	height: 8rem;
 	left: 0;
 	top: 0;
+	border-bottom: 1px solid color(Black);
 	.main-nav {
 		@media #{$medium-down} {
 			margin: 0 25px;
@@ -87,7 +88,6 @@ export default {
 			cursor: pointer;
 				@media #{$small-only} {
 					width: 100%;
-					// text-align: center;
 				}
 			&--normal {
 				@media #{$small-only} {
@@ -95,7 +95,7 @@ export default {
 				}
 			}
 			&--menubtn {
-				display: none;
+				display: block;
 				position: relative;
 				.cta-to-menu {
 					position: absolute;
@@ -107,9 +107,6 @@ export default {
 					&:hover {
 						animation: none;
 					}
-				}
-				@media #{$small-only} {
-					display: block;
 				}
 			}
 		}
@@ -159,8 +156,7 @@ export default {
 		right: 0%;
 		top: 0%;
 		z-index: 2;
-		background-color: color(Yellow);
-		color: color(Black);
+		background-color: color(Black);
 		width: 100%;
 		height: 100vh;
 		justify-content: space-evenly;
@@ -168,18 +164,9 @@ export default {
 		transition: clip-path 0.5s ease-in-out, width 1s ease 1s;
 		-webkit-clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
 		clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+		display: flex;
+		flex-direction: column;
 
-		display: none;
-		@media #{$medium-down} {
-			display: flex;
-			flex-direction: column;
-		}
-		a {
-			span.special-snowflake {
-				color: color(Black);
-				&::after { background-color: color(Red); }
-			}
-		}
 		&.active {
 			-webkit-clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);
 			clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);
@@ -188,7 +175,7 @@ export default {
 	&__inner {
 		width: 100%;
 		text-align: left;
-		h4 { color: color(Black); }
+		h4 { color: color(WhiteSecond); }
 		&--navigation {
 			h4{ font-size: 50px;}
 		}

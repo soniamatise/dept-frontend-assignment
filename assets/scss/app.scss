@@ -17,4 +17,10 @@ $output: set-output(css, true);
 
 body {
 	background-color: color(WhiteSecond);
+	height: auto;
+	overflow-x: hidden;
+}
+
+img:not([alt]), img[alt=""] {
+	outline: none;
 }
