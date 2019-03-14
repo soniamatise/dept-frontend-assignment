@@ -1,8 +1,7 @@
 <template>
 
 	<main class="page page--home">
-		<section class="intro">
-		</section>
+		<section class="intro"/>
 	</main>
 
 </template>
