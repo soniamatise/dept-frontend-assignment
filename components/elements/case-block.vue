@@ -1,20 +1,23 @@
 <template>
 	<article v-if="caseType == 'short'" class="case-block case-block--short">
-		<div class="case-block__image"/>
 		<div class="case-block__client">{{ caseClient }}</div>
-		<div class="case-block__client">{{ caseTitle }}</div>
+		<div class="case-block__title"><h3>{{ caseTitle }}</h3></div>
 		<nuxt-link v-if="caseLink" :to="caseLink">VIEW CASE</nuxt-link>
 	</article>
 	<article v-else-if="caseType == 'long'" class="case-block case-block--long">
-		<div class="case-block__image"/>
+		<div class="case-block__image">
+			<img :src="caseImage"/>
+		</div>
 		<div class="case-block__client">{{ caseClient }}</div>
-		<div class="case-block__client">{{ caseTitle }}</div>
+		<div class="case-block__title"><h3>{{ caseTitle }}</h3></div>
 		<nuxt-link v-if="caseLink" :to="caseLink">VIEW CASE</nuxt-link>
 	</article>
 	<article v-else class="case-block case-block--normal">
-		<div class="case-block__image"/>
+		<div class="case-block__image">
+			<img :src="caseImage"/>
+		</div>
 		<div class="case-block__client">{{ caseClient }}</div>
-		<div class="case-block__client">{{ caseTitle }}</div>
+		<div class="case-block__title"><h3>{{ caseTitle }}</h3></div>
 		<nuxt-link v-if="caseLink" :to="caseLink">VIEW CASE</nuxt-link>
 	</article>
 </template>

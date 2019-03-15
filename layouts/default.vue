@@ -2,7 +2,7 @@
 	<div class="layout layout-default row center">
 		<l-header />
 		<nuxt />
-		<!-- <l-footer /> -->
+		<l-footer />
 	</div>
 </template>
 

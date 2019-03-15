@@ -1,8 +1,8 @@
 <template>
 	<footer id="footer" class="footer">
-		<h5 class="sub">by
+		<!-- <h5 class="sub">by
 			<a href="https://www.matise.nl">Matise</a>
-		</h5>
+		</h5> -->
 	</footer>
 </template>
 
@@ -14,7 +14,7 @@ export default {};
 @import '~tools';
 // Footer styles
 .footer {
-	padding: 2rem;
-	text-align: center;
+	background-color: color(Black);
+	padding: 100px 0 113px;
 }
 </style>

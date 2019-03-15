@@ -43,3 +43,15 @@ body {
 img:not([alt]), img[alt=""] {
 	outline: none;
 }
+
+
+.button {
+	&--full-black {
+		padding: 10px 0;
+		min-width: 170px;
+		text-align: center;
+		background-color: color(Black);
+		color: color(WhiteSecond);
+		text-transform: uppercase;
+	}
+}
