@@ -48,7 +48,7 @@ main.center {
 	&__short-cases {
 		margin: 40px 0;
 		width: calc(30% - 30px);
-		background: green;
+		background: (White);
 
 		@media #{$medium-down} {
 			width: 100%;
