@@ -6,6 +6,8 @@
 
 1. First clone the project locally.
 
+2. Start the Terminal.
+
 ```bash
 # install dependencies
 $ npm install
