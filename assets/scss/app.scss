@@ -54,4 +54,12 @@ img:not([alt]), img[alt=""] {
 		color: color(WhiteSecond);
 		text-transform: uppercase;
 	}
+	&--blue {
+		color: color(StrongBlue);
+		text-transform: uppercase;
+
+		&::before {
+			content: '>';
+		}
+	}
 }

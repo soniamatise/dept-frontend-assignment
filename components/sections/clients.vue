@@ -6,7 +6,7 @@
 		</div>
 		<div class="clients__logo-container">
 			<div v-for="(client, index) in clients" :key="index" class="clients__logo">
-				<img :src="client.url"/>
+				<img :src="client.url">
 			</div>
 		</div>
 	</section>	

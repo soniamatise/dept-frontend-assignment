@@ -1,5 +1,5 @@
 <template>
-	<section class="section section__intro-image intro-image">
+	<section :style="`background-image: url('${ image }')`" class="section section__intro-image intro-image">
 		<div class="intro-image__title">
 			<h2>WORK</h2>
 		</div>
@@ -16,7 +16,9 @@
 export default {
 	components: {
 		// clientLogo
-	}
+	},
+	props: ['image']
+
 }
 
 </script>

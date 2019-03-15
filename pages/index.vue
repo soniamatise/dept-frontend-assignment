@@ -1,21 +1,34 @@
 <template>
 	<main class="page page--home">
-		<intro-image/>
+		<intro-image :image="headerImg"/>
 		<section class="section section__cases-archive cases-archive">
-			<case-block/>
-			<case-block/>
-			<case-block/>
-			<case-block/>
-
-			<!-- <div v-for="(item, index) in cases" :key="index" class="clients__logo">
-				<img :src="image.url"/>
-			</div> -->
-			<case-block case-type="long"/>
+			<case-block v-for="(item, index) in cases.slice(0,4)" :key="index"
+				:case-image="item.image"
+				:case-client="item.client"
+				:case-title="item.title"
+				case-link="/"
+			/>
+			<case-block 
+				:case-image="cases[4].image"
+				:case-client="cases[4].client"
+				:case-title="cases[4].title"
+				case-link="/"
+				case-type="long"
+			/>
 			<div class="cases-archive__short-cases">
-				<case-block case-type="short"/>
-				<case-block case-type="short"/>
+				<case-block v-for="(item, index) in cases.slice(5,7)" :key="index"
+					:case-client="item.client"
+					:case-title="item.title"
+					case-link="/"
+					case-type="short"
+				/>
 			</div>
-			<case-block/>
+			<case-block v-for="(item, index) in cases.slice(8,18)" :key="index"
+				:case-image="item.image"
+				:case-client="item.client"
+				:case-title="item.title"
+				case-link="/"
+			/>
 		</section>
 		<clients/>
 	</main>
@@ -34,6 +47,7 @@ export default {
 	},
 	data() {
         return {
+			headerImg: require('~/static/images/cases/florensis-1.png'),
 			cases: [
                 { 
 					image: require('~/static/images/cases/bol.png'),
