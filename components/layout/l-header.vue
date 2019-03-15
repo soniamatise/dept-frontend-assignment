@@ -170,6 +170,9 @@ export default {
 		padding: rem(50) 0 rem(20);
 		border-bottom: 1px solid color(Black);
 		transition: padding 600ms ease;
+		@media #{$medium-down} {
+			border-bottom: none;
+		}
 
 		&__list {
 			width: 100%;

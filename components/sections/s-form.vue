@@ -145,6 +145,9 @@ export default {
 	}
 	&__button {
 		margin: 0 50px;
+		@media #{$large-down} {
+			margin: 0;
+		}
 	}
 }
 

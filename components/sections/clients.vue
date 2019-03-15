@@ -54,6 +54,9 @@ export default {
 	&__description {
 		text-align: center;
 		width: 40%;
+		@media #{$medium-down} {
+			width: 100%;
+		}
 	}
 
 	&__logo-container {
@@ -62,11 +65,22 @@ export default {
 		flex-wrap: wrap;
 		width: 71%;
 		padding: 80px 0 20px;
+		@media #{$medium-down} {
+			width: 100%;
+		}
 	}
 	&__logo {
 		width: 25%;
 		height: 126px;
 		position: relative;
+
+		@media #{$medium-down} {
+			width: 33.33%;
+			height: 86px;
+			&:nth-child(n+7) {
+				display: none;
+			}
+		}
 
 		img {
 			position: absolute;
@@ -74,6 +88,9 @@ export default {
 			top: 50%;
 			left: 50%;
 			max-width: 100px;
+			@media #{$medium-down} {
+				max-width: 60px;
+			}
 		}
 
 	}

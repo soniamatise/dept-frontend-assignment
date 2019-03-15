@@ -1,6 +1,6 @@
 # DEPT
 
-> The Dept front-end assignment made in Nuxt.js
+> The Dept front-end assignment made in Nuxt.js by Sonia Nusselder
 
 ## Build Setup
 
@@ -18,6 +18,8 @@ $ npm start
 # generate static project
 $ npm run generate
 ```
+
+
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
 
