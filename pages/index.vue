@@ -1,5 +1,6 @@
 <template>
-	<main class="page page--home">
+	<main class="page page--home row center">
+		<!-- <l-header/> -->
 		<intro-image :image="headerImg"/>
 		<section class="section section__cases-archive cases-archive">
 			<case-block v-for="(item, index) in cases.slice(0,4)" :key="index"
@@ -23,14 +24,43 @@
 					case-type="short"
 				/>
 			</div>
-			<case-block v-for="(item, index) in cases.slice(8,18)" :key="index"
+			<case-block v-for="(item, index) in cases.slice(7,9)" :key="index"
+				:case-image="item.image"
+				:case-client="item.client"
+				:case-title="item.title"
+				case-link="/"
+			/>
+			<div class="cases-archive__short-cases">
+				<case-block v-for="(item, index) in cases.slice(9,11)" :key="index"
+					:case-client="item.client"
+					:case-title="item.title"
+					case-link="/"
+					case-type="short"
+				/>
+			</div>
+			<case-block 
+				:case-image="cases[11].image"
+				:case-client="cases[11].client"
+				:case-title="cases[11].title"
+				case-link="/"
+				case-type="long"
+			/>
+			<case-block v-for="(item, index) in cases.slice(12,18)" :key="index"
 				:case-image="item.image"
 				:case-client="item.client"
 				:case-title="item.title"
 				case-link="/"
 			/>
 		</section>
+		<quote
+			:quote-text="quote.text"
+			:quote-author="quote.author.name"
+			:author-function="quote.author.function"
+			:author-company="quote.author.company"
+		/>
 		<clients/>
+		<s-form/>
+		<!-- <l-footer/> -->
 	</main>
 </template>
 
@@ -38,12 +68,20 @@
 import caseBlock from '~/components/elements/case-block.vue';
 import clients from '~/components/sections/clients.vue';
 import introImage from '~/components/sections/intro-image.vue';
+import quote from '~/components/elements/quote.vue';
+import sForm from '~/components/sections/s-form.vue';
+import lHeader from '~/components/layout/l-header.vue';
+import lFooter from '~/components/layout/l-footer.vue';
 
 export default {
 	components: {
 		caseBlock,
 		clients,
-		introImage
+		introImage,
+		quote,
+		sForm,
+		lHeader,
+		lFooter
 	},
 	data() {
         return {
@@ -143,10 +181,14 @@ export default {
 					caseLink: '/',
 				},
 			],
-			items: [
-				{ message: 'Foo' },
-				{ message: 'Bar' }
-			]
+			quote: {
+				text: "Dept helped us tell our story through a bold new identity and a robust online experience. To the tune of 60% growth in online bookings in just one month.",
+				author: {
+					name: "MATTIJS TEN BRINK",
+					function: "ceo",
+					company: "transavia",
+				}
+			},
 		}
 	}
 };
@@ -156,9 +198,11 @@ export default {
 @import '~tools';
 
 .page {
-	// general page styles
 	&--home {
-		// specific home styles
+		width: 100vw;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
 	}
 }
 

@@ -1,0 +1,39 @@
+form input:not([type="submit"]):not([type="checkbox"]):not([type="radio"]) {
+	display: block;
+	appearance: none;
+	width: 100%;
+	border-radius: 0;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border: 0;
+	border-bottom-color: currentcolor;
+	border-bottom-style: none;
+	border-bottom-width: 0px;
+	border-bottom: 1px solid #ddd;
+	background-color: transparent;
+	line-height: 1;
+	font-weight: 600;
+	color: #000;
+	font-size: 16px;
+	height: 43px;
+}
+form textarea {
+	display: block;
+	appearance: none;
+	width: 100%;
+	border-radius: 0;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border: 0;
+	border-bottom-color: currentcolor;
+	border-bottom-style: none;
+	border-bottom-width: 0px;
+	border-bottom: 1px solid #ddd;
+	background-color: transparent;
+	line-height: 1;
+	font-weight: 600;
+	color: #000;
+	font-size: 16px;
+
+	resize: none;
+}

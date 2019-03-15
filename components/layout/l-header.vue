@@ -1,50 +1,65 @@
 <template>
-	<header id="header" class="header">
-		<div class="row center small-full medium-full large-24">
-			<div class="column">
-				<nav class="main-nav">
-					<ul class="main-nav__list">
-						<li class="main-nav__item">
-							<nuxt-link to="/" class="main-nav__link">
-								<span class="main-nav__text"><h1>Dept</h1></span>
-							</nuxt-link>
-						</li>			
-						<li class="main-nav__item main-nav__item--menubtn">
-							<a class="button-container yellow cta-to-menu" @click="toggleMenu()">
-								<p>MENU</p>
-							</a>
-						</li>
-					</ul>
-				</nav>
-			</div>
+	<header id="header" :class="['header row center', { 'scrolled': scrolled }]">
+		<div class="section section__top-nav top-nav">
+			<ul class="top-nav__list">
+				<li class="top-nav__item">
+					<nuxt-link to="/" class="top-nav__link">
+						<span class="top-nav__logo">
+							<img :src="logo">
+						</span>
+					</nuxt-link>
+				</li>			
+				<li class="top-nav__item top-nav__item--menubtn">
+					<a @click="toggleMenu()">
+						<h5>MENU</h5>
+					</a>
+				</li>
+			</ul>
 		</div>
+
 		<section :class="['menu__overlay', { 'active': showMenu }]">
 			<div class="menu-wrapper" @click="toggleMenu()">
 				<div class="hamburger-menu black animate" />
 			</div>
-			<div class="menu__inner menu__inner--navigation">
-				<h4 @click="toggleMenu()">
-					<nuxt-link to="/">Home</nuxt-link>
-				</h4>
-				<h4 @click="toggleMenu()">
-					<nuxt-link to="/werk">Werk</nuxt-link>
-				</h4>
-				<h4 @click="toggleMenu()">
-					<nuxt-link to="/work">Over</nuxt-link>
-				</h4>
-				<h4 @click="toggleMenu()">
-					<nuxt-link to="/work">Diensten</nuxt-link>
-				</h4>
-				<h4 @click="toggleMenu()">
-					<nuxt-link to="/work">Partners</nuxt-link>
-				</h4>
-				<h4 @click="toggleMenu()">
-					<nuxt-link to="/work">Stories</nuxt-link>
-				</h4>
-				<h4 @click="toggleMenu()">
-					<nuxt-link to="/work">vacatures</nuxt-link>
-				</h4>
-			</div>
+			<nav class="section section__main-nav main-nav row center">
+				<ul class="main-nav__list">
+					<li class="main-nav__item">
+						<nuxt-link to="/" class="main-nav__link">
+							<span class="main-nav__text">Home</span>
+						</nuxt-link>
+					</li>			
+					<li class="main-nav__item">
+						<nuxt-link to="/work" class="main-nav__link">
+							<span class="main-nav__text">werk</span>
+						</nuxt-link>
+					</li>	
+					<li class="main-nav__item">
+						<nuxt-link to="/over" class="main-nav__link">
+							<span class="main-nav__text">Over</span>
+						</nuxt-link>
+					</li>	
+					<li class="main-nav__item">
+						<nuxt-link to="/diensten" class="main-nav__link">
+							<span class="main-nav__text">DIensten</span>
+						</nuxt-link>
+					</li>	
+					<li class="main-nav__item">
+						<nuxt-link to="/partners" class="main-nav__link">
+							<span class="main-nav__text">partners</span>
+						</nuxt-link>
+					</li>
+					<li class="main-nav__item">
+						<nuxt-link to="/stories" class="main-nav__link">
+							<span class="main-nav__text">stories</span>
+						</nuxt-link>
+					</li>
+					<li class="main-nav__item">
+						<nuxt-link to="/vacatures" class="main-nav__link">
+							<span class="main-nav__text">vacatures</span>
+						</nuxt-link>
+					</li>	
+				</ul>
+			</nav>
 		</section>
 	</header>
 </template>
@@ -52,12 +67,24 @@
 export default {
 	data() {
 		return {
-			showMenu: false
+			showMenu: false,
+			scrolled: false,
+			logo: require('~/static/images/agency/dept.png'),
 		};
+	},
+	created () {
+		window.addEventListener('scroll', this.handleScroll);
+	},
+	destroyed () {
+		window.removeEventListener('scroll', this.handleScroll);
 	},
 	methods: {
 		toggleMenu: function () {
 			this.showMenu = !this.showMenu;
+		},
+		handleScroll () {
+			this.scrolled = window.scrollY > 0;
+			console.log(this.scrolled);
 		}
 	}
 };
@@ -67,15 +94,85 @@ export default {
 @import '~tools';
 
 .header {
-	padding: rem(50) 0 rem(20);
+	position: fixed;
+	z-index: 4;
 	width: 100%;
-	max-width: 1250px;
-	border-bottom: 1px solid color(Black);
+	padding: 0 20px;
+	transition: background-color 600ms ease;
+
+	@media #{$medium-down} {
+		background-color: color(WhiteSecond);
+	}
+
 	.main-nav {
-		@media #{$medium-down} {
-			margin: 0 25px;
-		}
+		max-width: 1400px;
+		width: 100%;
+		padding: 0 20px;
+
 		&__list {
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			align-items: right;
+			text-align: right;
+			margin-top: 147px;
+			@media #{$medium-down} {
+				margin-top: 100px;
+			}
+		}
+		&__item {
+			cursor: pointer;
+			border-bottom: 2px solid color(BlackSecond);
+		}
+		&__text {
+			position: relative;
+			z-index: 1;
+			font-size: 110px;
+			font-family: 'Teko';
+			font-weight: normal;
+			font-style: normal;
+			font-stretch: normal;
+			line-height: 1;
+			@media #{$medium-down} {
+				font-size: 50px;
+			}
+		}
+		&__link {
+			color: white;
+			text-transform: uppercase;
+			&.nuxt-link-exact-active {
+				.main-nav__text {
+					display: flex;
+					justify-content: flex-end;
+					align-items: center;
+					&:before {
+						content: '\25b6';
+						font-size: 50px;
+						@media #{$medium-down} {
+							font-size: 20px;
+						}
+					}
+				}
+			}
+		}
+		&__logo {
+			img {
+				width: 100px;
+				transition: width 600ms ease;
+			}
+		}
+	}
+
+	.top-nav {
+		max-width: 1400px;
+		width: 100vw;
+		padding: rem(50) 0 rem(20);
+		border-bottom: 1px solid color(Black);
+		transition: padding 600ms ease;
+
+		&__list {
+			width: 100%;
 			display: flex;
 			flex-direction: row;
 			justify-content: space-between;
@@ -83,65 +180,31 @@ export default {
 		}
 		&__item {
 			cursor: pointer;
-				@media #{$small-only} {
-					width: 100%;
-				}
-			&--normal {
-				@media #{$small-only} {
-					display: none;
-				}
-			}
-			&--menubtn {
-				display: block;
-				position: relative;
-				.cta-to-menu {
-					position: absolute;
-					transform: translate(0, -50%);
-					right: 0;
-					top: 50%;
-					z-index: 1;
-					padding: 10px;
-					&:hover {
-						animation: none;
-					}
-				}
-			}
 		}
 		&__text {
 			position: relative;
 			z-index: 1;
-			@media #{$small-only} {
-				h1 {font-size: 30px;}
-			}
-			&::after {
-				content: '';
-				position: absolute;
-				left: 0;
-				bottom: -2px;
-				height: 1rem;
-				width: 100%;
-				background-color: color(Black);
-				transition: height 200ms ease, background-color 600ms ease;
-				z-index: -1;
-			}
 		}
 		&__link {
 			color: white;
 			text-transform: uppercase;
-
-			&:hover {
-				.main-nav__text {
-					&::after {
-						height: 0rem;
-					}
-				}
+		}
+		&__logo {
+			img {
+				width: 100px;
+				transition: width 600ms ease;
 			}
-			&.nuxt-link-exact-active {
-				.main-nav__text {
-					color: color(White);
-					&::after {
-						height: 0rem;
-					}
+		}
+	}
+	&.scrolled {
+		background-color: color(WhiteSecond);
+
+		.top-nav {
+			padding: rem(18) 0 rem(20);
+			border: none;
+			&__logo {
+				img {
+					width: 60px;
 				}
 			}
 		}
@@ -152,12 +215,11 @@ export default {
 		position: fixed;
 		right: 0%;
 		top: 0%;
-		z-index: 2;
+		z-index: 4;
 		background-color: color(Black);
 		width: 100%;
 		height: 100vh;
 		justify-content: space-evenly;
-		padding: 0 25px;
 		transition: clip-path 0.5s ease-in-out, width 1s ease 1s;
 		-webkit-clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
 		clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
@@ -188,13 +250,13 @@ export default {
 }
 
 
-$bar-width: 40px;
-$bar-height: 5px;
+$bar-width: 20px;
+$bar-height: 2px;
 $bar-spacing: 10px;
 
 .menu-wrapper {
 	position: fixed;
-	top: 40px;
+	top: 20px;
 	right: 20px;
 	margin: auto;
 	z-index: 5;
@@ -241,10 +303,10 @@ $bar-spacing: 10px;
 .hamburger-menu {
 	&.black {
 		&::after {
-			background: color(Black);
+			background: color(WhiteSecond);
 		}
 		&::before {
-			background: color(Black);
+			background: color(WhiteSecond);
 		}
 	}
 }

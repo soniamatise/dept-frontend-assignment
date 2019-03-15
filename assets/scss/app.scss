@@ -21,15 +21,27 @@ body {
 	overflow-x: hidden;
 }
 
-.section {
+main.center {
 	width: 100vw;
-	max-width: 1260px;
+}
+
+.section {
+	width: 100%;
+	max-width: 1400px;
 	display: flex;
 	flex-wrap: wrap;
+	padding: 80px 0;
+	@media #{$large-down} {
+		padding: 80px 20px;
+	}
+	@media #{$medium-down} {
+		padding: 40px 20px;
+	}
 
 	&__cases-archive {
 		flex-direction: row;
-		justify-content: space-around;
+		justify-content: space-between;
+		border-bottom: 2px solid color(WhiteThird);
 	}
 }
 .cases-archive {
@@ -37,29 +49,13 @@ body {
 		margin: 40px 0;
 		width: calc(30% - 30px);
 		background: green;
+
+		@media #{$medium-down} {
+			width: 100%;
+		}
 	}
 }
 
 img:not([alt]), img[alt=""] {
 	outline: none;
-}
-
-
-.button {
-	&--full-black {
-		padding: 10px 0;
-		min-width: 170px;
-		text-align: center;
-		background-color: color(Black);
-		color: color(WhiteSecond);
-		text-transform: uppercase;
-	}
-	&--blue {
-		color: color(StrongBlue);
-		text-transform: uppercase;
-
-		&::before {
-			content: '>';
-		}
-	}
 }
